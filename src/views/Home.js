@@ -12,9 +12,21 @@ export default class Home extends Component{
             tasks:Tasks
         }
     }
+
+    addTask = description => {
+        const newTask={id:this.state.tasks.length,
+        description:description,
+        done:false};
+        this.setState({ tasks: [...this.state.tasks, newTask]});
+    }
+
+
     render(){
         return(<Grid container direction="row"
         justify="center"
-        alignItems="center"><TaskForm/><TaskList/></Grid>)
+        alignItems="center">
+        <Grid item xs={6} ><TaskForm addtask={this.addTask}/></Grid>
+        <Grid item xs={6} ><TaskList task={this.state.tasks}/></Grid>
+        </Grid>)
     }
 }
