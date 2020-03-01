@@ -8,9 +8,9 @@ export default class Task extends Component {
         formError: { error: false, text: "" }
     }
     render() {
-        return (<Grid container direction={"column"} spacing={1}>
+        return (<Grid container direction={"column"} spacing={1} alignItems={"center"}>
             <Grid item xs={12}><Typography variant="overline">Hola</Typography></Grid>
-            <Grid item xs={12}><TextField autoFocus={true} placeholder={"Tarea"} variant="outlined">Hola carola sopleteame las bolas</TextField></Grid>
+            <Grid item xs={12}><TextField autoFocus={true} placeholder={"Tarea"} variant="outlined"></TextField></Grid>
             <Grid item xs={12}><Button
                 variant="contained"
                 color="primary"
