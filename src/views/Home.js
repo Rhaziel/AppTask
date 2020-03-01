@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
 import { Typography } from '@material-ui/core';
-
+import Task from '../components/Task';
 
 export default class Home extends Component{
     render(){
-        return(<Typography variant='h3' color='secondary' align='justify'>Hola soy down</Typography>)
+        return(<div><Task/></div>)
     }
 }
