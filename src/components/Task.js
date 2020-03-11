@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import CheckBoxRoundedIcon from '@material-ui/icons/CheckBoxRounded';
-import { Button, Typography, CardActions, CardContent, Card} from "@material-ui/core";
+import { Button, Typography, CardActions, CardContent, Card, Checkbox} from "@material-ui/core";
 import DeleteForeverRoundedIcon from '@material-ui/icons/DeleteForeverRounded';
 import {withStyles} from '@material-ui/core/styles';
 
@@ -16,19 +15,24 @@ class Task extends Component {
         return (
             <Card className={classes.Card}>
                 <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
+                    <Typography 
+                        variant="body2" 
+                        color="textSecondary" 
+                        component="p"
+                        style={{textDecoration : this.props.task.done ? 'line-through' : 'none'}}
+                    >
                         {this.props.task.description}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button variant="contained"
-                        color="primary"
-                        startIcon={<CheckBoxRoundedIcon />}>
-                        Realizada
-                    </Button>
+                    <Checkbox 
+                        onChange={this.props.checkdone.bind(this, this.props.task.id)}
+                    />
                     <Button variant="contained" 
                         color="secondary" 
-                        startIcon={<DeleteForeverRoundedIcon/>}>
+                        startIcon={<DeleteForeverRoundedIcon/>}
+                        onClick={this.props.deletetask.bind(this, this.props.task.id)}
+                        >
                         Eliminar
         </Button>
                 </CardActions>

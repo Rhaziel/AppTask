@@ -16,13 +16,14 @@ export default class TaskForm extends Component {
         this.setState({description: ""})
     }
     render() {
-        return (<Grid container direction={"column"} spacing={1} alignItems={"center"} xs={6}>
-            <form onSubmit={this.onSubmit}>
+        return (<Grid container direction={"column"} spacing={1} alignItems={"center"}>
+            <form onSubmit={this.onSubmit} >
                 <Grid item xs={12}><Typography variant="overline">Hola</Typography></Grid>
                 <Grid item xs={12}><TextField
                     autoFocus={true}
                     placeholder={"Tarea"}
                     variant="outlined"
+                    required
                     onChange={this.onChange}
                     value={this.state.description}>
                 </TextField>
