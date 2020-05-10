@@ -33,8 +33,8 @@ class Task extends Component {
                         startIcon={<DeleteForeverRoundedIcon/>}
                         onClick={this.props.deletetask.bind(this, this.props.task.id)}
                         >
-                        Eliminar
-        </Button>
+                            Eliminar
+                    </Button>
                 </CardActions>
             </Card>
         )

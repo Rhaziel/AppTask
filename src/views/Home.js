@@ -39,8 +39,8 @@ export default class Home extends Component{
         return(<Grid container direction="row"
         justify="center"
         alignItems="center">
-        <Grid item xs={6} ><TaskForm addtask={this.addTask}/></Grid>
-        <Grid item xs={6} ><TaskList checkdone={this.checkDone} task={this.state.tasks} deletetask={this.deleteTask}/></Grid>
+        <Grid item sm={3} lg={6} xs={12}><TaskForm addtask={this.addTask}/></Grid>
+        <Grid item sm={3} lg={6} xs={12}><TaskList checkdone={this.checkDone} task={this.state.tasks} deletetask={this.deleteTask}/></Grid>
         </Grid>)
     }
 }

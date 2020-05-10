@@ -1,8 +1,18 @@
 import React, { Component } from "react";
-import { TextField, Button, Grid, Typography } from "@material-ui/core";
+import { TextField, Button, Grid } from "@material-ui/core";
 import NoteAddSharpIcon from '@material-ui/icons/NoteAddSharp';
+import { withStyles } from '@material-ui/core/styles';
 
-export default class TaskForm extends Component {
+const styles = theme => ({
+    ButtonAdd:{
+      margin: theme.spacing(3)
+    },
+    TextFieldAdd:{
+        marginTop: theme.spacing(4)
+    }
+  });
+
+class TaskForm extends Component {
     state = {
         description: "",
         formError: { error: false, text: "" }
@@ -16,29 +26,38 @@ export default class TaskForm extends Component {
         this.setState({description: ""})
     }
     render() {
+        const { classes } = this.props;
         return (<Grid container direction={"column"} spacing={1} alignItems={"center"}>
             <form onSubmit={this.onSubmit} >
-                <Grid item xs={12}><Typography variant="overline">Hola</Typography></Grid>
-                <Grid item xs={12}><TextField
-                    autoFocus={true}
-                    placeholder={"Tarea"}
-                    variant="outlined"
-                    required
-                    onChange={this.onChange}
-                    value={this.state.description}>
-                </TextField>
+                <Grid container justify='center'>
+                    <Grid item xs={12}><TextField
+                        autoFocus={true}
+                        placeholder={"Tarea"}
+                        variant="outlined"
+                        required
+                        onChange={this.onChange}
+                        value={this.state.description}
+                        multiline='true'
+                        className={classes.TextFieldAdd}>
+                    </TextField>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12}><Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    startIcon={< NoteAddSharpIcon />}
-                >
-                    Agregar
-            </Button>
+                <Grid container justify='flex-end' direction='column' alignItems='flex-end'>
+                    <Grid item xs={12}>
+                        <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        startIcon={< NoteAddSharpIcon />}
+                        className={classes.ButtonAdd}>
+                            Agregar
+                        </Button>
+                    </Grid>
                 </Grid>
             </form>
 
         </Grid>)
     }
 }
+
+export default withStyles(styles)(TaskForm);
